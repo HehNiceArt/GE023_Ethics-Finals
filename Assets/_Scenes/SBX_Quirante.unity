@@ -2449,9 +2449,9 @@ MonoBehaviour:
       reputationWeight: -8
     - description: Community Service
       reputationWeight: 5
-  - caseDescription: "Emma hosted a protest peacefully. Things didn\u2019t turn out
-      to be as peaceful as they\u2019d initially planned as one of the protesters
-      got harassed."
+  - caseDescription: "Emma hosted a protest peacefully. Things didn't turn out to
+      be as peaceful as they\u2019d initially planned as one of the protesters got
+      harassed."
     characterSprite: {fileID: -6828446584895059201, guid: cf49ef9a27e244725828c8a31256ced3, type: 3}
     evidence1: {fileID: 7803205293886956972, guid: 9245e3b7349374508b4302b8cb50afbb, type: 3}
     evidence2: {fileID: -7933684908365705954, guid: a416c40f7b7484943b1c848494a81abe, type: 3}
