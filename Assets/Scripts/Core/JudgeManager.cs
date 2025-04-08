@@ -19,13 +19,19 @@ public class JudgeManager : MonoBehaviour
     [Header("Sprites")]
     public Image character;
     public Image evidence1, evidence2;
+    public GameObject gavel;
+    public float gavelSec;
+
+    GameClear gameClear;
 
     int currentCaseIndex = 0;
 
     void Start()
     {
+        gavel.SetActive(false);
         LoadCase(currentCaseIndex);
         StartCoroutine(DescriptionDialogue());
+        gameClear = GetComponent<GameClear>();
     }
     void LoadCase(int index)
     {
@@ -65,7 +71,6 @@ public class JudgeManager : MonoBehaviour
     private void Update()
     {
         HideDialogue();
-
     }
     void HideDialogue()
     {
@@ -89,10 +94,18 @@ public class JudgeManager : MonoBehaviour
         int change = currentCase.options[index].reputationWeight;
         reputationManager.currentReputation += change;
 
-
         Debug.Log($"Reputation changed by {change}, new: {reputationManager.currentReputation}");
         choices.SetActive(false);
 
+        StartCoroutine(GavelAnim());
+
+    }
+
+    IEnumerator GavelAnim()
+    {
+        gavel.SetActive(true);
+        yield return new WaitForSeconds(gavelSec);
+        gavel.SetActive(false);
         NextCase();
     }
 
@@ -101,17 +114,14 @@ public class JudgeManager : MonoBehaviour
         currentCaseIndex++;
         if (currentCaseIndex < caseOptions.Count)
         {
+            StopCoroutine(GavelAnim());
             StopCoroutine(DescriptionDialogue());
             StartCoroutine(DescriptionDialogue());
             LoadCase(currentCaseIndex);
         }
         else
         {
-            GameClear();
+            gameClear.GameOver();
         }
-    }
-    public void GameClear()
-    {
-        Debug.Log("Game has been cleared.");
     }
 }
