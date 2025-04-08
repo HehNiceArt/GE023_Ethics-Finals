@@ -70,7 +70,10 @@ public class JudgeManager : MonoBehaviour
     void HideDialogue()
     {
         if (Input.GetKeyUp(KeyCode.Space))
+        {
+            StopCoroutine(DescriptionDialogue());
             CaseDialogue.SetActive(false);
+        }
     }
     IEnumerator DescriptionDialogue()
     {
@@ -98,6 +101,7 @@ public class JudgeManager : MonoBehaviour
         currentCaseIndex++;
         if (currentCaseIndex < caseOptions.Count)
         {
+            StopCoroutine(DescriptionDialogue());
             StartCoroutine(DescriptionDialogue());
             LoadCase(currentCaseIndex);
         }
