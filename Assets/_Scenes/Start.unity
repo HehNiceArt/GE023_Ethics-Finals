@@ -713,7 +713,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSounds:
   - name: GameClear
-    clip: {fileID: 8300000, guid: b0ad79a2930dc401384d270851a8265d, type: 3}
+    clip: {fileID: 8300000, guid: 7a4436fc60b0d4fd584dae29a07636ef, type: 3}
   - name: Theme
     clip: {fileID: 8300000, guid: e1ef298bd58e64f67bef5941620e1908, type: 3}
   sfxSounds:
