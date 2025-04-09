@@ -715,7 +715,7 @@ MonoBehaviour:
   - name: GameClear
     clip: {fileID: 8300000, guid: 7a4436fc60b0d4fd584dae29a07636ef, type: 3}
   - name: Theme
-    clip: {fileID: 8300000, guid: e1ef298bd58e64f67bef5941620e1908, type: 3}
+    clip: {fileID: 8300000, guid: 85dd046fee29d4cdeac1940769d463fd, type: 3}
   sfxSounds:
   - name: Affirm
     clip: {fileID: 8300000, guid: bfd75b65b7154426380b2f11f460f13d, type: 3}
