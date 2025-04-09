@@ -16,6 +16,7 @@ public class GameClear : MonoBehaviour
     }
     public void GameOver()
     {
+        AudioManage.Instance.PlayMusic("GameClear");
         gameOverUI.SetActive(true);
     }
 

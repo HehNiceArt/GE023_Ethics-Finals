@@ -90,6 +90,7 @@ public class JudgeManager : MonoBehaviour
     {
         if (index < 0 || index >= caseOptions.Count) return;
 
+        AudioManage.Instance.PlaySFX("Affirm");
         CaseData currentCase = caseOptions[currentCaseIndex];
         int change = currentCase.options[index].reputationWeight;
         reputationManager.currentReputation += change;

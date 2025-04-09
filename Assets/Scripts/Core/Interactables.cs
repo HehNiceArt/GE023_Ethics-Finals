@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class Interactables : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private Image image;
+    [SerializeField] string openName;
+    [SerializeField] string closeName;
     private Color defaultColor = Color.white;
     [Header("References")]
     [SerializeField] GameObject expandItem;
@@ -35,6 +37,7 @@ public class Interactables : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     public void OnPointerClick(PointerEventData eventData)
     {
         image.color = clickColor;
+        AudioManage.Instance.PlaySFX(openName);
         isExpand = true;
         expandItem.SetActive(true);
     }
@@ -46,11 +49,15 @@ public class Interactables : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     void InputKeys()
     {
         if (Input.GetKeyUp(KeyCode.Escape) && isExpand)
+        {
+            AudioManage.Instance.PlaySFX(closeName);
             expandItem.SetActive(false);
+        }
     }
     public void OnCancel()
     {
         isExpand = false;
+        AudioManage.Instance.PlaySFX(closeName);
         expandItem.SetActive(false);
     }
 }
